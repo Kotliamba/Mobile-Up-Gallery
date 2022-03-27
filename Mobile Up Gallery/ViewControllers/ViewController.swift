@@ -8,43 +8,17 @@
 import UIKit
 import SnapKit
 
-
-protocol tokenAccessDelegate {
-    func updateUrlWithToken(url: String)
-}
-
 class ViewController: UIViewController {
-
     
-    private let buttonOAuth: UIButton = {
-       let button = UIButton()
-        button.backgroundColor = .black
-        button.setTitle("Вход через VK", for: .normal)
-        button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 18)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 8
-        
-        
-        return button
-    }()
+    var model = Model()
     
-    let labelFirst: UILabel = {
-        let label = UILabel()
-        label.text = "Mobile Up"
-        label.textColor = .black
-        label.font = UIFont(name: "TrebuchetMS-Bold", size: 48)
-        label.numberOfLines = 1
-        return label
-    }()
+    var items = [Item]()
     
-    let labelSecond: UILabel = {
-        let label = UILabel()
-        label.text = "Gallery"
-        label.textColor = .black
-        label.font = UIFont(name: "TrebuchetMS-Bold", size: 48)
-        label.numberOfLines = 0
-        return label
-    }()
+    private let buttonOAuth: UIButton = Button.getButton()
+    
+    private let labelFirst: UILabel = Label.getFistScreenLabel(with: "Mobile Up")
+    
+    private let labelSecond: UILabel = Label.getFistScreenLabel(with: "Gallery")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,24 +28,35 @@ class ViewController: UIViewController {
         view.addSubview(labelFirst)
         view.addSubview(labelSecond)
         
+        model.itemsFetchDelegate = self
+        
         buttonOAuth.addTarget(self, action: #selector(openWebView), for: .touchUpInside)
         
         makeConstraints()
+        
+        if model.isTokenWorking() {
+            goToSecondScreen()
+        }
     }
 
-
-    
     @objc func openWebView(){
         guard let url = URL(string: "https://oauth.vk.com/authorize?client_id=8115175&redirect_uri=https://oauth.vk.com/blank.html&scope=2&display=mobile&response_type=token") else {return}
         let webViewController = WebController(url: url)
+        
         webViewController.tokenDelegate = self
 
         present(webViewController, animated: true)
-        
-        
     }
     
-    
+    private func goToSecondScreen(){
+        print("Trying second Screen")
+            let imagesViaUrlAndDate = self.items
+            let secondViewController = UICollectionViewViewController()
+            let nav = UINavigationController(rootViewController: secondViewController)
+            secondViewController.imageSet = imagesViaUrlAndDate
+        print("Trying to present")
+        present(nav, animated: true)
+    }
     
     private func makeConstraints(){
         buttonOAuth.snp.makeConstraints { make in
@@ -93,12 +78,28 @@ class ViewController: UIViewController {
             make.trailing.equalTo(view).offset(-24)
         }
     }
+
 }
+
 
 extension ViewController: tokenAccessDelegate {
     func updateUrlWithToken(url: String) {
         print("111111111111111111111111111111111111111111111111111111")
         print(url)
-    }
+        model.setNewToken(with: url)
+        guard let requestURL = model.buildRequestUrl() else {
+            print("Reques fail")
+            return  }
+        model.getServerResponse(to: requestURL)
+        }
     
+}
+extension ViewController: itemsFetchDelegate {
+        func updateItems(_ items: [Item]) {
+            DispatchQueue.main.async {
+                self.items = items
+                self.goToSecondScreen()
+        }
+    }
+
 }

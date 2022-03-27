@@ -11,7 +11,7 @@ import WebKit
 class WebController: UIViewController {
     
     private let url: URL
-    var tokenDelegate: tokenAccessDelegate?
+    weak var tokenDelegate: tokenAccessDelegate?
     
     private let webView: WKWebView = {
         let config = WKWebViewConfiguration()
@@ -53,16 +53,12 @@ class WebController: UIViewController {
             if let newURL = (newValue as? NSURL){
                 guard let str = newURL.absoluteString else {return}
                 if str.contains("https://oauth.vk.com/blank.html#access_token="){
-                    tokenDelegate?.updateUrlWithToken(url: str)
-                    print("DISMISING WEBCONTROLLER")
-                    self.dismiss(animated: true)
+                    dismiss(animated: true) { [weak self] in
+                        self?.tokenDelegate?.updateUrlWithToken(url: str)
+                    }
                 }
             }
         }
-    }
-    
-    deinit {
-        print("DEINITIAL WEBCONTROLLER")
     }
     
 }

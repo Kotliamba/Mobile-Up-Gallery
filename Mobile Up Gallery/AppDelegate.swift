@@ -13,12 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UIFont.familyNames.forEach({ name in
-        for font in UIFont.fontNames(forFamilyName: name){
-                print(font)
-            }
-        })
-            
         return true
     }
 

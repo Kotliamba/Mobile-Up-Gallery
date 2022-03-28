@@ -38,6 +38,11 @@ class ViewController: UIViewController {
             goToSecondScreen()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("View appeared")
+    }
 
     @objc func openWebView(){
         guard let url = URL(string: "https://oauth.vk.com/authorize?client_id=8115175&redirect_uri=https://oauth.vk.com/blank.html&scope=2&display=mobile&response_type=token") else {return}
@@ -45,17 +50,23 @@ class ViewController: UIViewController {
         
         webViewController.tokenDelegate = self
 
-        present(webViewController, animated: true)
+        present(webViewController, animated: true) 
     }
     
-    private func goToSecondScreen(){
+    @objc private func goToSecondScreen(){
         print("Trying second Screen")
-            let imagesViaUrlAndDate = self.items
-            let secondViewController = UICollectionViewViewController()
-            let nav = UINavigationController(rootViewController: secondViewController)
-            secondViewController.imageSet = imagesViaUrlAndDate
-        print("Trying to present")
+        let imagesViaUrlAndDate = self.items
+
+        let secondViewController = UICollectionViewViewController()
+        let nav = UINavigationController(rootViewController: secondViewController)
+        secondViewController.imageSet = imagesViaUrlAndDate
+        
+        nav.modalPresentationStyle = .fullScreen
+
+        
         present(nav, animated: true)
+        
+        print("Trying to present")
     }
     
     private func makeConstraints(){

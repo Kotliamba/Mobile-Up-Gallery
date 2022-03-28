@@ -27,8 +27,11 @@ class WebController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //custom func to clean cashe
+        WKWebView.clean()
         view.addSubview(webView)
+
         webView.load(URLRequest(url: url))
         webView.addObserver(self, forKeyPath: "URL",options: .new, context: nil)
     }
@@ -62,3 +65,5 @@ class WebController: UIViewController {
     }
     
 }
+
+

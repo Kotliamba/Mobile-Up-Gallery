@@ -21,6 +21,8 @@
 		7452337127F2F520003DFA55 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7452336F27F2F520003DFA55 /* PhotoController.swift */; };
 		7452337627F32255003DFA55 /* DateSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7452337527F32255003DFA55 /* DateSetter.swift */; };
 		7452337827F3463C003DFA55 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */; };
+		745AD34E27F38980009ADB17 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745AD34D27F38980009ADB17 /* Alert.swift */; };
+		7487C5E627F381DC001B1EE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7487C5E827F381DC001B1EE2 /* Localizable.strings */; };
 		749348D427EDE21900757B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D327EDE21900757B45 /* AppDelegate.swift */; };
 		749348D627EDE21900757B45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D527EDE21900757B45 /* SceneDelegate.swift */; };
 		749348D827EDE21900757B45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D727EDE21900757B45 /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		7452336F27F2F520003DFA55 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		7452337527F32255003DFA55 /* DateSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSetter.swift; sourceTree = "<group>"; };
 		7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		745AD34D27F38980009ADB17 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		7487C5E727F381DC001B1EE2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		749348D027EDE21900757B45 /* Mobile Up Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Up Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749348D327EDE21900757B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749348D527EDE21900757B45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		749348F427EDE21C00757B45 /* Mobile_Up_GalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile_Up_GalleryUITests.swift; sourceTree = "<group>"; };
 		749348F627EDE21C00757B45 /* Mobile_Up_GalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile_Up_GalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		74AEB7E027EF4B1F00A5254A /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
+		74B5978127F3845600875946 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74C3AE3B27F1FA7C00182B17 /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
 		BAA4496FC396948D28FD5433 /* Pods-Mobile Up GalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Up GalleryTests.release.xcconfig"; path = "Target Support Files/Pods-Mobile Up GalleryTests/Pods-Mobile Up GalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		CDE3235A88BF08CAF5DA5CF8 /* Pods-Mobile Up GalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Up GalleryTests.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Up GalleryTests/Pods-Mobile Up GalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +159,7 @@
 				7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */,
 				741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */,
 				741A5CA327EF815E001C67DC /* SFPRODISPLAYBOLD.OTF */,
+				7487C5E827F381DC001B1EE2 /* Localizable.strings */,
 			);
 			path = MobileFonts;
 			sourceTree = "<group>";
@@ -165,6 +171,7 @@
 				741A5CAD27EF8629001C67DC /* Model.swift */,
 				7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */,
 				7452337527F32255003DFA55 /* DateSetter.swift */,
+				745AD34D27F38980009ADB17 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +344,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 749348C727EDE21900757B45;
 			productRefGroup = 749348D127EDE21900757B45 /* Products */;
@@ -356,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				741A5CA427EF815E001C67DC /* SFPRODISPLAYBOLD.OTF in Resources */,
+				7487C5E627F381DC001B1EE2 /* Localizable.strings in Resources */,
 				749348E027EDE21C00757B45 /* LaunchScreen.storyboard in Resources */,
 				749348DD27EDE21C00757B45 /* Assets.xcassets in Resources */,
 				7452337827F3463C003DFA55 /* SFProDisplay-Semibold.ttf in Resources */,
@@ -490,6 +499,7 @@
 				74C3AE3C27F1FA7C00182B17 /* WKWebView.swift in Sources */,
 				74AEB7E127EF4B1F00A5254A /* WebController.swift in Sources */,
 				7452337627F32255003DFA55 /* DateSetter.swift in Sources */,
+				745AD34E27F38980009ADB17 /* Alert.swift in Sources */,
 				741A5CAA27EF8431001C67DC /* Button.swift in Sources */,
 				749348D827EDE21900757B45 /* ViewController.swift in Sources */,
 				749348D427EDE21900757B45 /* AppDelegate.swift in Sources */,
@@ -537,6 +547,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7487C5E827F381DC001B1EE2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7487C5E727F381DC001B1EE2 /* en */,
+				74B5978127F3845600875946 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		749348DE27EDE21C00757B45 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -552,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -612,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

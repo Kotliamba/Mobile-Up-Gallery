@@ -44,7 +44,7 @@ class UICollectionViewViewController: UIViewController {
     
     private var rightButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Выход", for: .normal)
+        button.setTitle(NSLocalizedString("Button exit", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont.SFDisplayMedium(size: 18)
         button.setTitleColor(UIColor.black, for: .normal)
          

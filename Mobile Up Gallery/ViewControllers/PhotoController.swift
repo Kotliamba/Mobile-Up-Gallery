@@ -63,13 +63,26 @@ class PhotoController: UIViewController {
         
         label.text = DateSetter.getDate(date: date)
     }
+    
+    
  
     @objc private func shareImage(){
         let shareSheet = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        shareSheet.completionWithItemsHandler = { (activityType, completed:Bool, returnedItems:[Any]?, error: Error?) in
+            if activityType == .saveToCameraRoll {
+                self.alertError(title: NSLocalizedString("Alert for saved photo", comment: ""), message: NSLocalizedString("Alert message for nice choice", comment: ""))
+            }
+            guard let type = activityType?.rawValue else {return}
+            if type.contains("SaveToFiles") {
+                self.alertError(title: NSLocalizedString("Alert for donwloaded photo", comment: ""), message: NSLocalizedString("Alert message for nice choice", comment: ""))
+            }
+            if let _ = error {
+                self.alertError(title: NSLocalizedString("Alert for error in share menu", comment: ""), message: NSLocalizedString("Alert message for error in share menu", comment: ""))
+            }
+         }
+        
         
         present(shareSheet, animated: true)
-        
-        print("ShareTapped")
     }
     
     @objc private func closeViewController(){

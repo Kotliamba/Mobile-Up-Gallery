@@ -35,7 +35,10 @@ class ViewController: UIViewController {
         makeConstraints()
         
         if model.isTokenWorking() {
+            model.getSavedToken()
+            model.getServerResponse(to: model.buildRequestUrl() ?? "")
             goToSecondScreen()
+            
         }
     }
     
@@ -60,7 +63,7 @@ class ViewController: UIViewController {
         let secondViewController = UICollectionViewViewController()
         let nav = UINavigationController(rootViewController: secondViewController)
         secondViewController.imageSet = imagesViaUrlAndDate
-        
+        nav.navigationItem.backBarButtonItem?.customView?.isHidden = true
         nav.modalPresentationStyle = .fullScreen
 
         

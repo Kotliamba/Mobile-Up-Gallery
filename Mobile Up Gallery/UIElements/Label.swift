@@ -13,7 +13,7 @@ class Label: UILabel {
         let label = UILabel()
         label.text = text
         label.textColor = .black
-        label.font = UIFont.labelFont(size: 48)
+        label.font = UIFont.SFDisplayBold(size: 48)
         label.numberOfLines = 1
         return label
     }

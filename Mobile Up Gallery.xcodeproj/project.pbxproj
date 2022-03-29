@@ -17,10 +17,10 @@
 		741D275127EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */; };
 		7425A06B27F0919A00D3136E /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425A06A27F0919A00D3136E /* AlbumModel.swift */; };
 		7425A06E27F0A6DD00D3136E /* UICollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */; };
-		7425A06F27F0A6DD00D3136E /* UICollectionViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7425A06D27F0A6DD00D3136E /* UICollectionViewViewController.xib */; };
-		7440C20127F229EE001B3C6A /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440C20027F229EE001B3C6A /* DownloadModel.swift */; };
-		7440C20327F2536A001B3C6A /* SecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440C20227F2536A001B3C6A /* SecondCell.swift */; };
 		7440C20527F258A2001B3C6A /* ThirdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */; };
+		7452337127F2F520003DFA55 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7452336F27F2F520003DFA55 /* PhotoController.swift */; };
+		7452337627F32255003DFA55 /* DateSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7452337527F32255003DFA55 /* DateSetter.swift */; };
+		7452337827F3463C003DFA55 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */; };
 		749348D427EDE21900757B45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D327EDE21900757B45 /* AppDelegate.swift */; };
 		749348D627EDE21900757B45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D527EDE21900757B45 /* SceneDelegate.swift */; };
 		749348D827EDE21900757B45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348D727EDE21900757B45 /* ViewController.swift */; };
@@ -31,8 +31,6 @@
 		749348F727EDE21C00757B45 /* Mobile_Up_GalleryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749348F627EDE21C00757B45 /* Mobile_Up_GalleryUITestsLaunchTests.swift */; };
 		74AEB7E127EF4B1F00A5254A /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEB7E027EF4B1F00A5254A /* WebController.swift */; };
 		74C3AE3C27F1FA7C00182B17 /* WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AE3B27F1FA7C00182B17 /* WKWebView.swift */; };
-		74C3AE3F27F203B000182B17 /* ColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C3AE3D27F203B000182B17 /* ColCell.swift */; };
-		74C3AE4027F203B000182B17 /* ColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C3AE3E27F203B000182B17 /* ColCell.xib */; };
 		950B842B8DB3F71A3ACB9A09 /* Pods_Mobile_Up_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF4811EDB8A35B6F68A3C20 /* Pods_Mobile_Up_Gallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,10 +65,10 @@
 		741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYMEDIUM.OTF; sourceTree = "<group>"; };
 		7425A06A27F0919A00D3136E /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewViewController.swift; sourceTree = "<group>"; };
-		7425A06D27F0A6DD00D3136E /* UICollectionViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICollectionViewViewController.xib; sourceTree = "<group>"; };
-		7440C20027F229EE001B3C6A /* DownloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadModel.swift; sourceTree = "<group>"; };
-		7440C20227F2536A001B3C6A /* SecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCell.swift; sourceTree = "<group>"; };
 		7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCollectionViewCell.swift; sourceTree = "<group>"; };
+		7452336F27F2F520003DFA55 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		7452337527F32255003DFA55 /* DateSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSetter.swift; sourceTree = "<group>"; };
+		7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		749348D027EDE21900757B45 /* Mobile Up Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mobile Up Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749348D327EDE21900757B45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749348D527EDE21900757B45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,8 +83,6 @@
 		749348F627EDE21C00757B45 /* Mobile_Up_GalleryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile_Up_GalleryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		74AEB7E027EF4B1F00A5254A /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		74C3AE3B27F1FA7C00182B17 /* WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebView.swift; sourceTree = "<group>"; };
-		74C3AE3D27F203B000182B17 /* ColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColCell.swift; sourceTree = "<group>"; };
-		74C3AE3E27F203B000182B17 /* ColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColCell.xib; sourceTree = "<group>"; };
 		BAA4496FC396948D28FD5433 /* Pods-Mobile Up GalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Up GalleryTests.release.xcconfig"; path = "Target Support Files/Pods-Mobile Up GalleryTests/Pods-Mobile Up GalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		CDE3235A88BF08CAF5DA5CF8 /* Pods-Mobile Up GalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Up GalleryTests.debug.xcconfig"; path = "Target Support Files/Pods-Mobile Up GalleryTests/Pods-Mobile Up GalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED213B04B9959F8DAD2BDCC0 /* Pods-Mobile Up Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobile Up Gallery.release.xcconfig"; path = "Target Support Files/Pods-Mobile Up Gallery/Pods-Mobile Up Gallery.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +144,6 @@
 			children = (
 				741A5CA927EF8431001C67DC /* Button.swift */,
 				741A5CAB27EF84E7001C67DC /* Label.swift */,
-				7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -156,6 +151,7 @@
 		745D268527EF3DCE008D33D8 /* MobileFonts */ = {
 			isa = PBXGroup;
 			children = (
+				7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */,
 				741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */,
 				741A5CA327EF815E001C67DC /* SFPRODISPLAYBOLD.OTF */,
 			);
@@ -167,7 +163,8 @@
 			children = (
 				7425A06A27F0919A00D3136E /* AlbumModel.swift */,
 				741A5CAD27EF8629001C67DC /* Model.swift */,
-				7440C20027F229EE001B3C6A /* DownloadModel.swift */,
+				7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */,
+				7452337527F32255003DFA55 /* DateSetter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,10 +172,10 @@
 		7477566027F0F0F8002447D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7425A06D27F0A6DD00D3136E /* UICollectionViewViewController.xib */,
 				749348D727EDE21900757B45 /* ViewController.swift */,
 				7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */,
 				74AEB7E027EF4B1F00A5254A /* WebController.swift */,
+				7452336F27F2F520003DFA55 /* PhotoController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -212,15 +209,12 @@
 				749348D327EDE21900757B45 /* AppDelegate.swift */,
 				749348D527EDE21900757B45 /* SceneDelegate.swift */,
 				749348DC27EDE21C00757B45 /* Assets.xcassets */,
-				74C3AE3D27F203B000182B17 /* ColCell.swift */,
-				74C3AE3E27F203B000182B17 /* ColCell.xib */,
 				749348DE27EDE21C00757B45 /* LaunchScreen.storyboard */,
 				749348E127EDE21C00757B45 /* Info.plist */,
 				7477565F27F0F0EA002447D6 /* Model */,
 				7477566027F0F0F8002447D6 /* ViewControllers */,
 				741A5CA527EF82BD001C67DC /* Extensions */,
 				741A5CA827EF83FA001C67DC /* UIElements */,
-				7440C20227F2536A001B3C6A /* SecondCell.swift */,
 			);
 			path = "Mobile Up Gallery";
 			sourceTree = "<group>";
@@ -362,10 +356,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				741A5CA427EF815E001C67DC /* SFPRODISPLAYBOLD.OTF in Resources */,
-				7425A06F27F0A6DD00D3136E /* UICollectionViewViewController.xib in Resources */,
-				74C3AE4027F203B000182B17 /* ColCell.xib in Resources */,
 				749348E027EDE21C00757B45 /* LaunchScreen.storyboard in Resources */,
 				749348DD27EDE21C00757B45 /* Assets.xcassets in Resources */,
+				7452337827F3463C003DFA55 /* SFProDisplay-Semibold.ttf in Resources */,
 				741D275127EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +489,7 @@
 			files = (
 				74C3AE3C27F1FA7C00182B17 /* WKWebView.swift in Sources */,
 				74AEB7E127EF4B1F00A5254A /* WebController.swift in Sources */,
+				7452337627F32255003DFA55 /* DateSetter.swift in Sources */,
 				741A5CAA27EF8431001C67DC /* Button.swift in Sources */,
 				749348D827EDE21900757B45 /* ViewController.swift in Sources */,
 				749348D427EDE21900757B45 /* AppDelegate.swift in Sources */,
@@ -503,11 +497,9 @@
 				741A5CAC27EF84E7001C67DC /* Label.swift in Sources */,
 				749348D627EDE21900757B45 /* SceneDelegate.swift in Sources */,
 				7425A06E27F0A6DD00D3136E /* UICollectionViewViewController.swift in Sources */,
-				7440C20327F2536A001B3C6A /* SecondCell.swift in Sources */,
-				7440C20127F229EE001B3C6A /* DownloadModel.swift in Sources */,
 				741A5CAE27EF8629001C67DC /* Model.swift in Sources */,
 				7440C20527F258A2001B3C6A /* ThirdCollectionViewCell.swift in Sources */,
-				74C3AE3F27F203B000182B17 /* ColCell.swift in Sources */,
+				7452337127F2F520003DFA55 /* PhotoController.swift in Sources */,
 				7425A06B27F0919A00D3136E /* AlbumModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,6 +673,7 @@
 				DEVELOPMENT_TEAM = U2FVAML6Y7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mobile Up Gallery/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to save images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -691,7 +684,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kayan.Mobile-Up-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -711,6 +704,7 @@
 				DEVELOPMENT_TEAM = U2FVAML6Y7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mobile Up Gallery/Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to save images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -721,7 +715,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kayan.Mobile-Up-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

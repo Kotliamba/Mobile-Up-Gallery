@@ -13,7 +13,7 @@ class Button: UIButton {
     let button = UIButton()
     button.backgroundColor = .black
     button.setTitle("Вход через VK", for: .normal)
-    button.titleLabel?.font = UIFont.buttonFont(size: 18)
+    button.titleLabel?.font = UIFont.SFDisplayMedium(size: 18)
     button.setTitleColor(UIColor.white, for: .normal)
     button.layer.cornerRadius = 8
      

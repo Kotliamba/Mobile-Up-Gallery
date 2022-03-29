@@ -7,8 +7,11 @@ protocol itemsFetchDelegate {
     func updateItems(_ :[Item])
 }
 struct Model{
+    
+    let defaults = UserDefaults.standard
+    
     var token: String?
-    var tokenDate: Date?
+    var tokenDate = 0
     var items: [Item]?
     var itemsFetchDelegate: itemsFetchDelegate?
 
@@ -16,10 +19,20 @@ struct Model{
         return token
     }
     
+    func saveToken(){
+        defaults.set(self.token, forKey: "UserToken")
+        defaults.set(self.tokenDate, forKey: "TokenDate")
+    }
+    
     mutating func setNewToken(with str: String) {
         let token = makeTokenFromUrl(url: str)
         self.token = token
-        self.tokenDate = Date()
+        
+        let date = Date()
+        let timeInterval = date.timeIntervalSince1970
+        let dateToSave = Int(timeInterval)
+        self.tokenDate = dateToSave
+        saveToken()
     }
     
     func makeTokenFromUrl(url: String) -> String{
@@ -31,13 +44,18 @@ struct Model{
     }
     
     func isTokenWorking() -> Bool{
-        guard let date = self.tokenDate else { return false}
-        let timeinterval = (Int(date.timeIntervalSinceNow) * -1)
-        if timeinterval>=86400 {
+        let tokenDate = defaults.integer(forKey: "TokenDate")
+        let newdDate = Date()
+        let timeinterval = (Int(newdDate.timeIntervalSince1970))
+        if timeinterval-tokenDate>=86400 {
             return false
         } else {
             return true
         }
+    }
+    
+    mutating func getSavedToken(){
+        self.token = defaults.string(forKey: "UserToken") ?? ""
     }
     
     func buildRequestUrl() -> String?{

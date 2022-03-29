@@ -11,7 +11,6 @@ class ThirdCollectionViewCell: UICollectionViewCell {
     
     var viewUIimage = UIImageView()
     
-    
     func doIt(url: String, width: CGFloat){
         let cellView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: width))
         viewUIimage = UIImageView(frame: self.bounds)

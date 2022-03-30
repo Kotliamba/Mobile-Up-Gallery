@@ -1,13 +1,5 @@
-//
-//  UICollectionViewViewController.swift
-//  Mobile Up Gallery
-//
-//  Created by Чаусов Николай on 27.03.2022.
-//
-
 import UIKit
 import SnapKit
-import SDWebImage
 
 class UICollectionViewViewController: UIViewController {
     
@@ -116,7 +108,6 @@ extension UICollectionViewViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         let newVC = PhotoController(url: setOfURLs[indexPath.row], date: setOfDates[indexPath.row])
         self.navigationController?.pushViewController(newVC, animated: true)
-        print("Cell tapped")
     }
 }
 extension UICollectionViewViewController: UICollectionViewDataSource {

@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Mobile Up Gallery
-//
-//  Created by Чаусов Николай on 25.03.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -46,6 +39,19 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         print("View appeared")
     }
+    
+    func downloadingFalled(with problem: DownloadFallReason){
+        switch problem {
+        case .noConnection:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble check connection", comment: ""))
+        case .URLIsFalse:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble connect developer", comment: ""))
+        }
+    }
+    
+    func webKitFall() {
+        alertError(title: NSLocalizedString("Alert false autorisation", comment: ""), message: NSLocalizedString("Alert false autorisation message", comment: ""))
+    }
 
     @objc func openWebView(){
         guard let url = URL(string: "https://oauth.vk.com/authorize?client_id=8115175&redirect_uri=https://oauth.vk.com/blank.html&scope=2&display=mobile&response_type=token") else {return}
@@ -57,19 +63,14 @@ class ViewController: UIViewController {
     }
     
     @objc private func goToSecondScreen(){
-        print("Trying second Screen")
         let imagesViaUrlAndDate = self.items
-
         let secondViewController = UICollectionViewViewController()
         let nav = UINavigationController(rootViewController: secondViewController)
         secondViewController.imageSet = imagesViaUrlAndDate
         nav.navigationItem.backBarButtonItem?.customView?.isHidden = true
         nav.modalPresentationStyle = .fullScreen
 
-        
         present(nav, animated: true)
-        
-        print("Trying to present")
     }
     
     private func makeConstraints(){
@@ -98,11 +99,9 @@ class ViewController: UIViewController {
 
 extension ViewController: tokenAccessDelegate {
     func updateUrlWithToken(url: String) {
-        print("111111111111111111111111111111111111111111111111111111")
-        print(url)
         model.setNewToken(with: url)
         guard let requestURL = model.buildRequestUrl() else {
-            print("Reques fail")
+            downloadingFalled(with: .URLIsFalse)
             return  }
         model.getServerResponse(to: requestURL)
         }

@@ -1,11 +1,5 @@
 import UIKit
 
-protocol tokenAccessDelegate: AnyObject {
-    func updateUrlWithToken(url: String)
-}
-protocol itemsFetchDelegate {
-    func updateItems(_ :[Item])
-}
 struct Model{
     
     let defaults = UserDefaults.standard
@@ -14,7 +8,7 @@ struct Model{
     var tokenDate = 0
     var items: [Item]?
     var itemsFetchDelegate: itemsFetchDelegate?
-
+    
     func getLastToken() -> String? {
         return token
     }
@@ -67,14 +61,21 @@ struct Model{
         return str
     }
     
+    func callDelegateDownloadFalse(_ reason: DownloadFallReason){
+        DispatchQueue.main.async{
+            itemsFetchDelegate?.downloadingFalled(with: reason)
+        }
+    }
+    
+    
     mutating func getServerResponse(to url:String){
-        guard let requestURL = URL(string: url) else {return}
-        print("Запрос по адресу + \(url)")
+        guard let requestURL = URL(string: url) else {
+            callDelegateDownloadFalse(.URLIsFalse)
+            return }
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: requestURL) { [self]  data, response, error in
-            if let error = error {
-                print("ERROR!")
-                print(error)
+            if let _ = error {
+                callDelegateDownloadFalse(.noConnection)
             }
             guard let data = data else {
                 return
@@ -94,6 +95,7 @@ struct Model{
             return answer.response.items
         } catch {
             print(error)
+            callDelegateDownloadFalse(.URLIsFalse)
             return nil
         }
     }

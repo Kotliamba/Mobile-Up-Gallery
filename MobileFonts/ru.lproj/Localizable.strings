@@ -5,3 +5,8 @@
 "Alert for error in share menu" = "Что-то пошло не так :(";
 "Alert message for nice choice" = "Хороший выбор!";
 "Alert message for error in share menu" = "Нам очень жаль, попробуйте позже";
+"Alert Trouble loading" = "Нет доступа в интернет";
+"Alert Trouble check connection" = "Проверьте ваше соединение";
+"Alert Trouble connect developer" = "Пожалуйста, обратитесь к разработчику";
+"Alert false autorisation" = "Вы не вошли в аккаунт";
+"Alert false autorisation message" = "Нажмите на кнопку авторизации ещё раз";

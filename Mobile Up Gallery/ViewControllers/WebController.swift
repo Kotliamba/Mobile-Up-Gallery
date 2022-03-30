@@ -13,6 +13,8 @@ class WebController: UIViewController {
     private let url: URL
     weak var tokenDelegate: tokenAccessDelegate?
     
+    var lastUrl = ""
+    
     private let webView: WKWebView = {
         let config = WKWebViewConfiguration()
         let preferences = WKPreferences()
@@ -55,11 +57,21 @@ class WebController: UIViewController {
         if let newValue = change?[NSKeyValueChangeKey.newKey] {
             if let newURL = (newValue as? NSURL){
                 guard let str = newURL.absoluteString else {return}
+                lastUrl = str
                 if str.contains("https://oauth.vk.com/blank.html#access_token="){
                     dismiss(animated: true) { [weak self] in
                         self?.tokenDelegate?.updateUrlWithToken(url: str)
                     }
                 }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !lastUrl.contains("https://oauth.vk.com/blank.html#access_token="){
+            DispatchQueue.main.async{
+                self.tokenDelegate?.webKitFall()
             }
         }
     }

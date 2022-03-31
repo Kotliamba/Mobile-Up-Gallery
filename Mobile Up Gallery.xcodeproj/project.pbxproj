@@ -15,6 +15,7 @@
 		741D275127EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */; };
 		7425A06B27F0919A00D3136E /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425A06A27F0919A00D3136E /* AlbumModel.swift */; };
 		7425A06E27F0A6DD00D3136E /* UICollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */; };
+		74304BFE27F59C00000F900B /* ImageDownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74304BFD27F59C00000F900B /* ImageDownloadModel.swift */; };
 		743F4F7E27F4B009002931F0 /* DelegatesAndEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743F4F7D27F4B009002931F0 /* DelegatesAndEnums.swift */; };
 		7440C20527F258A2001B3C6A /* ThirdCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */; };
 		7452337127F2F520003DFA55 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7452336F27F2F520003DFA55 /* PhotoController.swift */; };
@@ -68,6 +69,7 @@
 		741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYMEDIUM.OTF; sourceTree = "<group>"; };
 		7425A06A27F0919A00D3136E /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewViewController.swift; sourceTree = "<group>"; };
+		74304BFD27F59C00000F900B /* ImageDownloadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadModel.swift; sourceTree = "<group>"; };
 		743F4F7D27F4B009002931F0 /* DelegatesAndEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAndEnums.swift; sourceTree = "<group>"; };
 		7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCollectionViewCell.swift; sourceTree = "<group>"; };
 		7452336F27F2F520003DFA55 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 				7452337727F3463B003DFA55 /* SFProDisplay-Semibold.ttf */,
 				741D275027EF3F2E0096E8D3 /* SFPRODISPLAYMEDIUM.OTF */,
 				741A5CA327EF815E001C67DC /* SFPRODISPLAYBOLD.OTF */,
-				7487C5E827F381DC001B1EE2 /* Localizable.strings */,
 			);
 			path = MobileFonts;
 			sourceTree = "<group>";
@@ -179,12 +180,13 @@
 		7477565F27F0F0EA002447D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				741A5CA527EF82BD001C67DC /* Extensions */,
 				7425A06A27F0919A00D3136E /* AlbumModel.swift */,
 				741A5CAD27EF8629001C67DC /* Model.swift */,
-				7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */,
 				7452337527F32255003DFA55 /* DateSetter.swift */,
 				745AD34D27F38980009ADB17 /* Alert.swift */,
 				743F4F7D27F4B009002931F0 /* DelegatesAndEnums.swift */,
+				74304BFD27F59C00000F900B /* ImageDownloadModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +196,7 @@
 			children = (
 				749348D727EDE21900757B45 /* ViewController.swift */,
 				7425A06C27F0A6DD00D3136E /* UICollectionViewViewController.swift */,
+				7440C20427F258A2001B3C6A /* ThirdCollectionViewCell.swift */,
 				74AEB7E027EF4B1F00A5254A /* WebController.swift */,
 				7452336F27F2F520003DFA55 /* PhotoController.swift */,
 			);
@@ -226,6 +229,7 @@
 		749348D227EDE21900757B45 /* Mobile Up Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				7487C5E827F381DC001B1EE2 /* Localizable.strings */,
 				749348D327EDE21900757B45 /* AppDelegate.swift */,
 				749348D527EDE21900757B45 /* SceneDelegate.swift */,
 				749348DC27EDE21C00757B45 /* Assets.xcassets */,
@@ -233,7 +237,6 @@
 				749348E127EDE21C00757B45 /* Info.plist */,
 				7477565F27F0F0EA002447D6 /* Model */,
 				7477566027F0F0F8002447D6 /* ViewControllers */,
-				741A5CA527EF82BD001C67DC /* Extensions */,
 				741A5CA827EF83FA001C67DC /* UIElements */,
 			);
 			path = "Mobile Up Gallery";
@@ -515,6 +518,7 @@
 				7452337127F2F520003DFA55 /* PhotoController.swift in Sources */,
 				743F4F7E27F4B009002931F0 /* DelegatesAndEnums.swift in Sources */,
 				7425A06B27F0919A00D3136E /* AlbumModel.swift in Sources */,
+				74304BFE27F59C00000F900B /* ImageDownloadModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,11 +697,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U2FVAML6Y7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mobile Up Gallery/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mobile Uo Gallery";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to save images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -709,7 +715,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kayan.Mobile-Up-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -724,11 +730,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U2FVAML6Y7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mobile Up Gallery/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mobile Uo Gallery";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Allow access to save images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -740,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kayan.Mobile-Up-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

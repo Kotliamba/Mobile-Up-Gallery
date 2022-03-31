@@ -16,12 +16,13 @@ class PhotoController: UIViewController {
     
     var imageView = UIImageView()
     
+    var downloadModel = ImageDownloadModel()
+    
     private var label: UILabel = {
         let label = UILabel()
-        label.text = "Дата отсутсвует"
+        label.text = NSLocalizedString("No date", comment: "")
         label.font = UIFont.SFDisplaySemibold(size: 18)
         label.textColor = .black
-        
         return label
     }()
     
@@ -29,14 +30,15 @@ class PhotoController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        
         self.view.addSubview(label)
 
         imageView = UIImageView()
         imageView.image = UIImage(named: "placeholder")
-        downloadImage(from: URL(string: url)!)
+        
+        downloadModel.downloadImageDelegate = self
+        downloadModel.downloadImage(from: url)
+        
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in
@@ -45,36 +47,19 @@ class PhotoController: UIViewController {
             make.trailing.equalToSuperview()
         }
         
-        self.navigationItem.titleView = label
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareImage))
-        self.navigationItem.rightBarButtonItem?.tintColor = .black
-        
-        
+        navigationItem.titleView = label
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareImage))
+        navigationItem.rightBarButtonItem?.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backIcon"), style: .plain, target: self, action: #selector(closeViewController))
         navigationItem.leftBarButtonItem?.tintColor = .black
-        
-
-        
-    }
-    
-    func downloadImage(from url: URL) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.imageView.image = UIImage(data: data)
-            }
-        }.resume()
     }
     
     convenience init(url: String, date: Int){
         self.init()
         self.url = url
-        
         label.text = DateSetter.getDate(date: date)
     }
     
-    
- 
     @objc private func shareImage(){
         let shareSheet = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
         shareSheet.completionWithItemsHandler = { (activityType, completed:Bool, returnedItems:[Any]?, error: Error?) in
@@ -89,8 +74,6 @@ class PhotoController: UIViewController {
                 self.alertError(title: NSLocalizedString("Alert for error in share menu", comment: ""), message: NSLocalizedString("Alert message for error in share menu", comment: ""))
             }
          }
-        
-        
         present(shareSheet, animated: true)
     }
     
@@ -98,4 +81,23 @@ class PhotoController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+}
+
+extension PhotoController: downloadImageDelegate {
+    func setImage(with image: UIImage) {
+        DispatchQueue.main.async {
+            self.imageView.image = image
+        }
+    }
+}
+
+extension PhotoController: AlertErrorDelegate {
+    func downloadingFalled(with problem: DownloadFallReason){
+        switch problem {
+        case .noConnection:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble check connection", comment: ""))
+        case .URLIsFalse:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble connect developer", comment: ""))
+        }
+    }
 }

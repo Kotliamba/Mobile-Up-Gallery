@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         view.addSubview(labelSecond)
         
         model.itemsFetchDelegate = self
+        model.alerErrordelegate = self
         
         buttonOAuth.addTarget(self, action: #selector(openWebView), for: .touchUpInside)
         
@@ -35,26 +36,15 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("View appeared")
-    }
-    
-    func downloadingFalled(with problem: DownloadFallReason){
-        switch problem {
-        case .noConnection:
-            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble check connection", comment: ""))
-        case .URLIsFalse:
-            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble connect developer", comment: ""))
-        }
-    }
-    
     func webKitFall() {
         alertError(title: NSLocalizedString("Alert false autorisation", comment: ""), message: NSLocalizedString("Alert false autorisation message", comment: ""))
     }
 
     @objc func openWebView(){
-        guard let url = URL(string: "https://oauth.vk.com/authorize?client_id=8115175&redirect_uri=https://oauth.vk.com/blank.html&scope=2&display=mobile&response_type=token") else {return}
+        guard let url = URL(string: "https://oauth.vk.com/authorize?client_id=8115175&redirect_uri=https://oauth.vk.com/blank.html&scope=2&display=mobile&response_type=token") else {
+            downloadingFalled(with: .URLIsFalse)
+            return
+        }
         let webViewController = WebController(url: url)
         
         webViewController.tokenDelegate = self
@@ -66,8 +56,8 @@ class ViewController: UIViewController {
         let imagesViaUrlAndDate = self.items
         let secondViewController = UICollectionViewViewController()
         let nav = UINavigationController(rootViewController: secondViewController)
+        
         secondViewController.imageSet = imagesViaUrlAndDate
-        nav.navigationItem.backBarButtonItem?.customView?.isHidden = true
         nav.modalPresentationStyle = .fullScreen
 
         present(nav, animated: true)
@@ -96,17 +86,17 @@ class ViewController: UIViewController {
 
 }
 
-
 extension ViewController: tokenAccessDelegate {
     func updateUrlWithToken(url: String) {
         model.setNewToken(with: url)
         guard let requestURL = model.buildRequestUrl() else {
             downloadingFalled(with: .URLIsFalse)
-            return  }
+            return
+        }
         model.getServerResponse(to: requestURL)
         }
-    
 }
+
 extension ViewController: itemsFetchDelegate {
         func updateItems(_ items: [Item]) {
             DispatchQueue.main.async {
@@ -114,5 +104,15 @@ extension ViewController: itemsFetchDelegate {
                 self.goToSecondScreen()
         }
     }
+}
 
+extension ViewController: AlertErrorDelegate {
+    func downloadingFalled(with problem: DownloadFallReason){
+        switch problem {
+        case .noConnection:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble check connection", comment: ""))
+        case .URLIsFalse:
+            alertError(title: NSLocalizedString("Alert Trouble loading", comment: ""), message: NSLocalizedString("Alert Trouble connect developer", comment: ""))
+        }
+    }
 }

@@ -7,11 +7,9 @@ struct Model{
     var token: String?
     var tokenDate = 0
     var items: [Item]?
-    var itemsFetchDelegate: itemsFetchDelegate?
     
-    func getLastToken() -> String? {
-        return token
-    }
+    weak var itemsFetchDelegate: itemsFetchDelegate?
+    weak var alerErrordelegate: AlertErrorDelegate?
     
     func saveToken(){
         defaults.set(self.token, forKey: "UserToken")
@@ -51,6 +49,7 @@ struct Model{
     mutating func getSavedToken(){
         self.token = defaults.string(forKey: "UserToken") ?? ""
     }
+
     
     func buildRequestUrl() -> String?{
         let ownerId = "-128666765"
@@ -63,7 +62,7 @@ struct Model{
     
     func callDelegateDownloadFalse(_ reason: DownloadFallReason){
         DispatchQueue.main.async{
-            itemsFetchDelegate?.downloadingFalled(with: reason)
+            alerErrordelegate?.downloadingFalled(with: reason)
         }
     }
     
@@ -71,9 +70,10 @@ struct Model{
     mutating func getServerResponse(to url:String){
         guard let requestURL = URL(string: url) else {
             callDelegateDownloadFalse(.URLIsFalse)
-            return }
+            return
+        }
         let session = URLSession(configuration: .default)
-        let dataTask = session.dataTask(with: requestURL) { [self]  data, response, error in
+        let dataTask = session.dataTask(with: requestURL) { [self]  data, _, error in
             if let _ = error {
                 callDelegateDownloadFalse(.noConnection)
             }

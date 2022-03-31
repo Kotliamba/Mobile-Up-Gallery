@@ -20,9 +20,7 @@ class WebController: UIViewController {
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = true
         config.preferences = preferences
-        
         let web = WKWebView(frame: .zero, configuration: config)
-        
         
         return web
     }()
@@ -40,7 +38,6 @@ class WebController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         webView.frame = view.bounds
     }
     
@@ -56,7 +53,10 @@ class WebController: UIViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let newValue = change?[NSKeyValueChangeKey.newKey] {
             if let newURL = (newValue as? NSURL){
-                guard let str = newURL.absoluteString else {return}
+                guard let str = newURL.absoluteString else {
+                    tokenDelegate?.webKitFall()
+                    return
+                }
                 lastUrl = str
                 if str.contains("https://oauth.vk.com/blank.html#access_token="){
                     dismiss(animated: true) { [weak self] in
@@ -75,7 +75,6 @@ class WebController: UIViewController {
             }
         }
     }
-    
 }
 
 
